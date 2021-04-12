@@ -1,0 +1,83 @@
+[
+	{
+		"id": "oofmod",
+		"display": "Oof Mod",
+		"version": "3.0",
+		"url": "https://sk1er.club/mods/refractionoof",
+		"github": "",
+		"download_url": "https://static.sk1er.club/repo/mods/refractionoof/3.0/1.8.9/OofMod-3.0%20(1.8.9).jar",
+		"icon_url": "",
+		"creator": "Powns & Sk1er, LLC",
+		"creator_icon": "https://yt3.ggpht.com/ytc/AAUvwnigc8RBr_yN3vOMiVVsMwnBejq9B1XDWuY8ik2c=s48-c-k-c0x00ffffff-no-rj",
+		"discord_code": "sk1er",
+		"public": true,
+		"msg_url": "",
+		"nicks": [
+			"oof mod",
+			"oofmod",
+			"oof"
+		],
+		"guide": "",
+		"description": "Play custom .wav sounds whenever you kill anyone :)"
+	},
+	{
+		"id": "autotip",
+		"display": "AutoTip",
+		"version": "N/A",
+		"url": "https://autotip.pro/",
+		"github": "https://github.com/Semx11/Autotip",
+		"download_url": "https://dl.autotip.pro/3.0.1",
+		"icon_url": "",
+		"creator": "SEMX11 & 2PI",
+		"creator_icon": "https://yt3.ggpht.com/ytc/AAUvwnigc8RBr_yN3vOMiVVsMwnBejq9B1XDWuY8ik2c=s48-c-k-c0x00ffffff-no-rj",
+		"discord_code": "",
+		"public": true,
+		"msg_url": "",
+		"nicks": [
+			"autotip",
+			"auto tip"
+		],
+		"guide": "",
+		"description": "First Autotip will tip all online boosters, then tip other online Autotip users. You both send and receive tips, which will greatly increase coin and experience gain."
+	},
+	{
+		"id": "ingameserverswitcher",
+		"version": "N/A",
+		"display": "Ingame Server Switcher",
+		"url": "https://www.youtube.com/watch?v=04EangMQd7I",
+		"github": "",
+		"download_url": "https://download1499.mediafire.com/sv9gozdtb6sg/uxm6ruol1179g3t/%281.8.9%29+IngameServerSwitcher.jar",
+		"icon_url": "",
+		"creator": "Canelex",
+		"creator_icon": "https://yt3.ggpht.com/ytc/AAUvwnjeXrAXBmhxe96y21vwdkr5Fslc_vM9hxCCarfdxw=s48-c-k-c0x00ffffff-no-rj",
+		"discord_code": "VcS4SnhX",
+		"public": true,
+		"msg_url": "",
+		"nicks": [
+			"ingameserverswitcher",
+			"serverswitcher"
+		],
+		"guide": "",
+		"description": "This is just a small mod that allows you to switch between servers quicker. It may not be the most useful thing out there, but it certainly improves on the usage of space taken up by the useless 'open to lan' button. If there are any bugs, please either DM me on twitter or join me and powns' discord."
+	},
+	{
+		"id": "neu",
+		"display": "NotEnoughUpdates",
+		"version": "2.0 PRE-25.1",
+		"url": "http://moulberry.github.io/projects#notenoughupdates",
+		"github": "https://github.com/Moulberry/NotEnoughUpdates",
+		"download_url": "https://cdn.discordapp.com/attachments/795602083382296616/823019858539184128/NotEnoughUpdates-2.0-PRE25.1.jar",
+		"icon_url": "",
+		"creator": "Moulberry",
+		"creator_icon": "https://images-ext-1.discordapp.net/external/D69YIZlTmX3WLbw428wWx7--wgyXWKOap4xTcLiH6bc/%3Fsize%3D2048/https/cdn.discordapp.com/icons/516977525906341928/6a171bef8996f928f9d066d68bc5ad00.png",
+		"discord_code": "moulberry",
+		"public": true,
+		"msg_url": "https://discord.com/channels/516977525906341928/795602083382296616/823019859754876998",
+		"nicks": [
+			"NotEnoughUpdates",
+			"neu"
+		],
+		"guide": "",
+		"description": "A mod that provides a NEI interface for searching and viewing item crafting recipes and information in Hypixel's Skyblock gamemode."
+	}
+]

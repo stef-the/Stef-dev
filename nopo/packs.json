@@ -1,0 +1,91 @@
+[
+	{
+		"id": "sbov16",
+		"display": "Skyblock Overhaul 16x",
+		"version": "Pre-1.0",
+		"url": "",
+		"github": "https://github.com/Skyblock-Overhaul/Texture-Pack/",
+		"download_url": "",
+		"icon_url": "https://media.discordapp.net/attachments/824060315415216168/830101082487128124/pack.png?width=334&height=334",
+		"creator": "Saikage",
+		"creator_icon": "",
+		"discord_code": "BcVQUcM6mM",
+		"public": false,
+		"msg_url": "https://discord.com/channels/796144458013081650/796441861333843978/816381117942202409",
+		"nicks": [
+			"sbov16x",
+			"sbov16",
+			"sbov",
+			"skyblock overhaul",
+			"skyblockoverhaul"
+		],
+		"guide": "",
+		"description": "The best 16x Texture pack. Currently paid."
+	},
+	{
+		"id": "wab",
+		"display": "Worlds and Beyond",
+		"version": "1.3",
+		"url": "",
+		"github": "",
+		"download_url": "https://download948.mediafire.com/fo1m0uey28og/md767ei6q626wbr/Worlds+and+Beyond+%5B16x%5D+-+Release+1.3.zip",
+		"icon_url": "https://media.discordapp.net/attachments/824060315415216168/830101148835774484/pack.png",
+		"creator": "Skeletony",
+		"creator_icon": "https://images-ext-1.discordapp.net/external/kQn6CK6Uqdd5CkoWhHHHZD11WeELdqtmocRpTpHqXuI/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/378106137586827276/42d9cf345230bc22a1f3bbe46edd11e3.png?width=300&height=300",
+		"discord_code": "BtAYyxf3W8",
+		"public": true,
+		"msg_url": "https://discord.com/channels/778919802953662488/778920533101772810/808530201256001536",
+		"nicks": [
+			"wab16x",
+			"wab16",
+			"wab",
+			"worlds and beyond",
+			"worldsandbeyond"
+		],
+		"guide": "",
+		"description": "Worlds and Beyond. Yup, another skyblock texture pack for y'all to use. But hey, at least this one is unique and superior in terms of quality. Ever thought that the existing texture pack you had wasn't good enough for you? You're in the right place then!"
+	},
+	{
+		"id": "phq16",
+		"display": "PacksHQ 16x",
+		"version": "v13",
+		"url": "https://packshq.com/",
+		"github": "",
+		"download_url": "https://packshq.com/assets/packs/v13/v13_16x_Hypixel_Skyblock_Pack.zip",
+		"icon_url": "https://media.discordapp.net/attachments/824060315415216168/830101301928394822/pack.png",
+		"creator": "PacksHQ Team",
+		"creator_icon": "https://cdn.discordapp.com/icons/594851373229670422/a_cbdf7eb72061cd147e157ac01307129a.png?size=128",
+		"discord_code": "packshq",
+		"public": true,
+		"msg_url": "",
+		"nicks": [
+			"phq",
+			"packshq",
+			"phq16"
+		],
+		"guide": "",
+		"description": "One of the most used Skyblock packs! It contains Custom GUI, 3D Pets, Books, Animated Textures, And Compatibility with all Minecraft Versions!"
+	},
+	{
+		"id": "phqdarkui",
+		"display": "PacksHQ Dark UI",
+		"version": "N/A",
+		"url": "https://packshq.com/",
+		"github": "",
+		"download_url": "https://packshq.com/assets/packs/Dark_Skyblock_UI.zip",
+		"icon_url": "https://media.discordapp.net/attachments/824060315415216168/830111579231092746/pack.png",
+		"creator": "PacksHQ Team",
+		"creator_icon": "https://cdn.discordapp.com/icons/594851373229670422/a_cbdf7eb72061cd147e157ac01307129a.png?size=128",
+		"discord_code": "packshq",
+		"public": true,
+		"msg_url": "",
+		"nicks": [
+			"phqdark",
+			"phqdarkui",
+			"packshqdark",
+			"phqd"
+		],
+		"guide": "",
+		"description": "Adds a dark theme to your GUI."
+	}
+]
