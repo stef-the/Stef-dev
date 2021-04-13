@@ -1,5 +1,4 @@
-import discord
-import json, os
+import discord, json, os
 from discord.ext import commands
 
 print('Loading in...')
