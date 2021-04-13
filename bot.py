@@ -17,12 +17,12 @@ slash = SlashCommand(bot)
 
 import sys, traceback, os, json
 
-initial_extensions = ['cogs.admin', 'cogs.nopo', 'cogs.moderation']
+initial_extensions = ['cogs.admin', 'cogs.nopo', 'cogs.moderation', 'cogs.starboard']
 
 if __name__ == '__main__':
-    for extension in initial_extensions:
+	for extension in initial_extensions:
 		print('\n')
-        bot.load_extension(extension)
+		bot.load_extension(extension)
 
 @bot.event
 async def on_ready():
