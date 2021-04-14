@@ -26,11 +26,11 @@ if __name__ == '__main__':
 
 @bot.event
 async def on_ready():
-    print(f'\n\nLogged in as: {bot.user.name} - {bot.user.id}\ndiscord.py version: {discord.__version__}\n')
+    print(f'\n\nLogging in as: {bot.user.name} - {bot.user.id}\ndiscord.py version: {discord.__version__}\n')
     print(f'Successfully logged in.')
 
 @bot.command(hidden=True)
-@bot.is_owner()
+@commands.is_owner()
 async def load(ctx, module : str):
 	try:
 		bot.load_extension(module)
@@ -39,7 +39,7 @@ async def load(ctx, module : str):
 		await ctx.reply(f'<:error:830635116048810005> Error while loading extension: ```py\n{e}\n```', mention_author=False)
 
 @bot.command(hidden=True)
-@bot.is_owner()
+@commands.is_owner()
 async def unload(ctx, module : str):
 	try:
 		bot.unload_extension(module)
@@ -48,7 +48,7 @@ async def unload(ctx, module : str):
 		await ctx.reply(f'<:error:830635116048810005> Error while loading extension: ```py\n{e}\n```', mention_author=False)
 
 @bot.command(hidden=True, name='reload')
-@bot.is_owner()
+@commands.is_owner()
 async def _reload(ctx, module : str):
 	try:
 		bot.unload_extension(module)
