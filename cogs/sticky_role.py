@@ -3,7 +3,7 @@ from discord.ext import commands
 
 print('Loading in...')
 
-class Sticky_Roles(commands.Cog):
+class Sticky(commands.Cog):
 	def __init__(self, bot):
 		self.bot = bot
 
@@ -30,5 +30,5 @@ class Sticky_Roles(commands.Cog):
 		write.close()
 
 def setup(bot):
-	bot.add_cog(Sticky_Roles(bot))
+	bot.add_cog(Sticky(bot))
 	print('cogs.sticky_role - injected')

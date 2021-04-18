@@ -17,7 +17,7 @@ slash = SlashCommand(bot)
 
 import sys, traceback, os, json
 
-initial_extensions = ['cogs.admin', 'cogs.nopo', 'cogs.moderation', 'cogs.starboard']
+initial_extensions = ['cogs.admin', 'cogs.nopo', 'cogs.moderation', 'cogs.starboard', 'cogs.status']
 
 if __name__ == '__main__':
 	for extension in initial_extensions:
@@ -26,8 +26,8 @@ if __name__ == '__main__':
 
 @bot.event
 async def on_ready():
-    print(f'\n\nLogging in as: {bot.user.name} - {bot.user.id}\ndiscord.py version: {discord.__version__}\n')
-    print(f'Successfully logged in.')
+	print(f'\n\nLogging in as: {bot.user.name} - {bot.user.id}\ndiscord.py version: {discord.__version__}\n')
+	print(f'Successfully logged in.')
 
 @bot.command(hidden=True)
 @commands.is_owner()
@@ -56,6 +56,36 @@ async def _reload(ctx, module : str):
 		await ctx.reply(f'<:yes:830635069222813766> Cog `{module}` was reloaded.', mention_author=False)
 	except Exception as e:
 		await ctx.reply(f'<:error:830635116048810005> Error while loading extension: ```py\n{e}\n```', mention_author=False)
+
+@bot.command(hidden=True, name='cogs')
+@commands.is_owner()
+async def cogs(ctx, folder: str='cogs'):
+	try:
+		if os.listdir(f'./{folder}'):
+			print('.')
+		item = True
+	except:
+		await ctx.reply('<:error:830635116048810005> Folder not found.', mention_author=False)
+		item = False
+	
+	if item:
+		e = []
+		thing = 0
+		for i in os.listdir(f'./{folder}'):
+			if i.endswith('.py'):
+				b = i.replace('.py', '')
+				try:
+					print('\n')
+					bot.load_extension(f"{folder}.{b}")
+					bot.unload_extension(f"{folder}.{b}")
+					e.append(f'<:off:830634812842442772> `{i}` - unloaded')
+					thing += 1
+				except commands.ExtensionAlreadyLoaded:
+					e.append(f'<:on:830634662912589837> `{i}` - loaded')
+					thing += 1
+		embed = discord.Embed(title=f'Cogs ({thing})', description='\n'.join(e))
+		await ctx.reply(embed=embed, mention_author=False)
+				
 
 token = os.getenv('token')
 bot.run(token, bot=True, reconnect=True)
