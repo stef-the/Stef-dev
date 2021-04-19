@@ -8,7 +8,10 @@ class Moderation(commands.Cog):
 	def __init__(self, bot):
 		self.bot = bot
 
-	@commands.command(name='ban', pass_context=True)
+	@commands.command(name='ban', 
+					pass_context=True,
+					aliases=['banish'],
+					description='Ban a user from your Guild. Requires `ban_members` permission.\n**Example:** -ban <@648316569059065859> He did something bad')
 	@commands.has_permissions(ban_members=True)
 	@commands.guild_only()
 	async def ban(self, ctx, user: discord.Member, *args):
@@ -27,7 +30,9 @@ class Moderation(commands.Cog):
 		else:
 			await ctx.reply('<:no:830635025187209216> Could not find user.', mention_author=False)
 	
-	@commands.command(name='kick', pass_context=True)
+	@commands.command(name='kick', 
+					pass_context=True,
+					description='Kick a member in your Guild. Requires `kick_members` permission.\n**Example:** -kick <@648316569059065859> He did something bad')
 	@commands.has_permissions(kick_members=True)
 	@commands.guild_only()
 	async def kick(self, ctx, user: discord.Member, *args):
@@ -46,9 +51,12 @@ class Moderation(commands.Cog):
 		else:
 			await ctx.reply('<:no:830635025187209216> Could not find user.', mention_author=False)
 
-	@commands.has_permissions(manage_messages=True)
-	@commands.command(name='purge', aliases=['p'], pass_context=True)
+	@commands.command(name='purge', 
+					aliases=['p'], 
+					pass_context=True,
+					description='Purge messages in your Guild. Requires `manage_messages` permission.\n**Examples:** -purge 20 Stef e (purges the 20 last messages sent by Stef with the letter `e`), -purge 20 (purges 20 messages).')
 	@commands.guild_only()
+	@commands.has_permissions(manage_messages=True)
 	async def purge(self, ctx, msgs: int, members="everyone", *, txt=None):
 		await ctx.message.delete()
 		member_object_list = []
@@ -78,7 +86,7 @@ class Moderation(commands.Cog):
 
 					await message.delete()
 				except discord.Forbidden:
-					await ctx.send(self.bot.bot_prefix + "You do not have permission to delete other users' messages. Use {}delete instead to delete your own messages.".format(self.bot.cmd_prefix))
+					await ctx.send(self.bot.bot_prefix + f"You do not have permission to delete other users' messages. Use {self.bot.cmd_prefix}delete instead to delete your own messages.")
 		else:
 			await ctx.send(self.bot.bot_prefix + 'Too many messages to delete. Enter a number < 10000')
 

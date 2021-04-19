@@ -85,7 +85,15 @@ async def cogs(ctx, folder: str='cogs'):
 					thing += 1
 		embed = discord.Embed(title=f'Cogs ({thing})', description='\n'.join(e))
 		await ctx.reply(embed=embed, mention_author=False)
-				
+
+class MyNewHelp(commands.MinimalHelpCommand):
+	async def send_pages(self):
+		destination = self.get_destination()
+		for page in self.paginator.pages:
+			emby = discord.Embed(description=page)
+			await destination.send(embed=emby)	
+
+bot.help_command = MyNewHelp()
 
 token = os.getenv('token')
 bot.run(token, bot=True, reconnect=True)

@@ -9,9 +9,10 @@ class Starboard(commands.Cog):
 		self.bot = bot
 
 	@commands.command(name='starchannel',
-				aliases=['starch'])
+				aliases=['starboardch', 'starboard'],
+				description=f'Set your starboard\'s channel.\n**Example:** -starchannel <#831236853239382037>')
 	@commands.has_permissions(manage_messages=True)
-	async def starchannel(self, ctx, channel: discord.TextChannel=None, *args):
+	async def starchannel(self, ctx, channel: discord.TextChannel=None):
 		re = open('json/starboard.json', 'r')
 		starboard_json = json.loads(re.read())
 		re.close()
@@ -25,9 +26,10 @@ class Starboard(commands.Cog):
 		wr.close()
 
 	@commands.command(name='addstar',
-				aliases=['starboard'])
+				aliases=['addstarboard'],
+				description=f'Set a starboard emoji + count.\n**Example:** -addstar ⭐️ 5')
 	@commands.has_permissions(manage_messages=True)
-	async def addstar(self, ctx, emoji: str, maxcount: int=5, *args):
+	async def addstar(self, ctx, emoji: str, count: int=5):
 		re = open('json/starboard.json', 'r')
 		starboard_json = json.loads(re.read())
 		re.close()
@@ -36,16 +38,17 @@ class Starboard(commands.Cog):
 		except:
 			starboard_json[str(ctx.guild.id)] = {}
 			inner_json = starboard_json[str(ctx.guild.id)]
-		inner_json[str(emoji)] = maxcount
+		inner_json[str(emoji)] = count
 		starboard_json[str(ctx.guild.id)] = inner_json
 		wr = open('json/starboard.json', 'w')
 		wr.write(json.dumps(starboard_json))
 		wr.close()
 	
 	@commands.command(name='removestar',
-				aliases=['unstarboard'])
+				aliases=['unstarboard'],
+				description=f'Remove a starboard emoji.\n**Example:** -removestar ⭐️')
 	@commands.has_permissions(manage_messages=True)
-	async def removestar(self, ctx, emoji: str, *args):
+	async def removestar(self, ctx, emoji: str):
 		re = open('json/starboard.json', 'r')
 		starboard_json = json.loads(re.read())
 		re.close()

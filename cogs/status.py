@@ -7,7 +7,10 @@ class Status(commands.Cog):
 	def __init__(self, bot):
 		self.bot = bot
 
-	@commands.command(name='status', pass_context=True, hidden=True, aliases=['st'])
+	@commands.command(name='status', 
+					pass_context=True, 
+					hidden=True, 
+					aliases=['st'])
 	@commands.is_owner()
 	async def status(self, ctx, s_type='', *args):
 		status_types = {

@@ -8,13 +8,13 @@ class Nopo(commands.Cog):
 		self.bot = bot
 
 	@commands.command(name='mods',
-				aliases=['mod'])
-	async def mods(self, ctx, *args):
-		smod = " ".join(args)
+				aliases=['mod'],
+				description='View the list of Nopo\'s mods!\n**Example:** -mod patcher')
+	async def mods(self, ctx, Mod: str=None):
 		m = open('nopo/mods.json', 'r')
 		mods = json.loads(m.read())
 		m.close()
-		if not smod:
+		if not Mod:
 			embed = discord.Embed(title='Nopo\'s Mods')
 			tick = 0
 			for mod in mods:
@@ -26,7 +26,7 @@ class Nopo(commands.Cog):
 			try:
 				for mod in mods:
 					for item in mod['nicks']:
-						if smod.lower() == item.lower():
+						if Mod.lower() == item.lower():
 							mstr = str(mod["nicks"]).replace("[", "").replace("]", "").replace("'", "`")
 							embed = discord.Embed(title=mod['display'], description=f'Aliases: {mstr}\nVersion: `{mod["version"]}`', url=mod['url'])
 							embed.set_thumbnail(url=mod['icon_url'])
@@ -39,13 +39,13 @@ class Nopo(commands.Cog):
 				await ctx.reply(content="<:s_dnd:822236762771554315> Please send a valid mod.", mention_author=False)
 
 	@commands.command(name='packs',
-				aliases=['pack', 'resourcepack', 'texturepack'])
-	async def packs(self, ctx, *args):
-		smod = " ".join(args)
+				aliases=['pack', 'resourcepack', 'texturepack'],
+				description='View the list of Nopo\'s packs!\n**Example:** -pack sbov')
+	async def packs(self, ctx, Pack: str=None):
 		m = open('nopo/packs.json', 'r')
 		mods = json.loads(m.read())
 		m.close()
-		if not smod:
+		if not Pack:
 			embed = discord.Embed(title='Nopo\'s Packs')
 			tick = 0
 			for mod in mods:
@@ -57,7 +57,7 @@ class Nopo(commands.Cog):
 			try:
 				for mod in mods:
 					for item in mod['nicks']:
-						if smod.lower() == item.lower():
+						if Pack.lower() == item.lower():
 							mstr = str(mod["nicks"]).replace("[", "").replace("]", "").replace("'", "`")
 							embed = discord.Embed(title=mod['display'], description=f'Aliases: {mstr}\nVersion: `{mod["version"]}`', url=mod['url'])
 							embed.set_thumbnail(url=mod['icon_url'])

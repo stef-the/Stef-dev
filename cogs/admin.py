@@ -7,7 +7,10 @@ class Admin(commands.Cog):
 	def __init__(self, bot):
 		self.bot = bot
 
-	@commands.command(name='console', pass_context=True, hidden=True, aliases=['sh', 'shell'])
+	@commands.command(name='console',
+					pass_context=True, 
+					hidden=True, 
+					aliases=['sh', 'shell'])
 	@commands.is_owner()
 	async def console(self, ctx, *args):
 		item = os.popen(' '.join(args)).readlines()

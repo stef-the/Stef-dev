@@ -1,12 +1,12 @@
-import discord, os
+import discord, json, os
 from discord.ext import commands
 
 print('Loading in...')
 
-class GitHub(commands.Cog):
+class Ticket(commands.Cog):
 	def __init__(self, bot):
 		self.bot = bot
 
 def setup(bot):
-	bot.add_cog(GitHub(bot))
-	print('cogs.github - injected')
+	bot.add_cog(Ticket(bot))
+	print('cogs.ticket - injected')
