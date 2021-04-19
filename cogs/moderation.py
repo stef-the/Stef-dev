@@ -11,7 +11,7 @@ class Moderation(commands.Cog):
 	@commands.command(name='ban', 
 					pass_context=True,
 					aliases=['banish'],
-					description='Ban a user from your Guild. Requires `ban_members` permission.\n**Example:** -ban <@648316569059065859> He did something bad')
+					description='Ban a user from your Guild.\nRequires `ban_members` permission.\n**Example:** -ban <@648316569059065859> He did something bad')
 	@commands.has_permissions(ban_members=True)
 	@commands.guild_only()
 	async def ban(self, ctx, user: discord.Member, *args):
@@ -32,7 +32,7 @@ class Moderation(commands.Cog):
 	
 	@commands.command(name='kick', 
 					pass_context=True,
-					description='Kick a member in your Guild. Requires `kick_members` permission.\n**Example:** -kick <@648316569059065859> He did something bad')
+					description='Kick a member in your Guild.\nRequires `kick_members` permission.\n**Example:** -kick <@648316569059065859> He did something bad')
 	@commands.has_permissions(kick_members=True)
 	@commands.guild_only()
 	async def kick(self, ctx, user: discord.Member, *args):
@@ -54,7 +54,7 @@ class Moderation(commands.Cog):
 	@commands.command(name='purge', 
 					aliases=['p'], 
 					pass_context=True,
-					description='Purge messages in your Guild. Requires `manage_messages` permission.\n**Examples:** -purge 20 Stef e (purges the 20 last messages sent by Stef with the letter `e`), -purge 20 (purges 20 messages).')
+					description='Purge messages in your Guild.\nRequires `manage_messages` permission.\n**Examples:** -purge 20 Stef e (purges the 20 last messages sent by Stef with the letter `e`), -purge 20 (purges 20 messages).')
 	@commands.guild_only()
 	@commands.has_permissions(manage_messages=True)
 	async def purge(self, ctx, msgs: int, members="everyone", *, txt=None):

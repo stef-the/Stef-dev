@@ -10,7 +10,7 @@ class Starboard(commands.Cog):
 
 	@commands.command(name='starchannel',
 				aliases=['starboardch', 'starboard'],
-				description=f'Set your starboard\'s channel.\n**Example:** -starchannel <#831236853239382037>')
+				description=f'Set your starboard\'s channel.\nRequires `manage_messages` permission.\n**Example:** -starchannel <#831236853239382037>')
 	@commands.has_permissions(manage_messages=True)
 	async def starchannel(self, ctx, channel: discord.TextChannel=None):
 		re = open('json/starboard.json', 'r')
@@ -27,7 +27,7 @@ class Starboard(commands.Cog):
 
 	@commands.command(name='addstar',
 				aliases=['addstarboard'],
-				description=f'Set a starboard emoji + count.\n**Example:** -addstar ⭐️ 5')
+				description=f'Set a starboard emoji + count.\nRequires `manage_messages` permission.\n**Example:** -addstar ⭐️ 5')
 	@commands.has_permissions(manage_messages=True)
 	async def addstar(self, ctx, emoji: str, count: int=5):
 		re = open('json/starboard.json', 'r')
@@ -46,7 +46,7 @@ class Starboard(commands.Cog):
 	
 	@commands.command(name='removestar',
 				aliases=['unstarboard'],
-				description=f'Remove a starboard emoji.\n**Example:** -removestar ⭐️')
+				description=f'Remove a starboard emoji.\nRequires `manage_messages` permission.\n**Example:** -removestar ⭐️')
 	@commands.has_permissions(manage_messages=True)
 	async def removestar(self, ctx, emoji: str):
 		re = open('json/starboard.json', 'r')
