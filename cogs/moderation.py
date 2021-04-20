@@ -51,8 +51,7 @@ class Moderation(commands.Cog):
 		else:
 			await ctx.reply('<:no:830635025187209216> Could not find user.', mention_author=False)
 
-	@commands.command(name='purge', 
-					aliases=['p'], 
+	@commands.command(name='purge',
 					pass_context=True,
 					description='Purge messages in your Guild.\nRequires `manage_messages` permission.\n**Examples:** -purge 20 Stef e (purges the 20 last messages sent by Stef with the letter `e`), -purge 20 (purges 20 messages).')
 	@commands.guild_only()
