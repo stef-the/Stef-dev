@@ -1,7 +1,4 @@
-import re
-
-import discord
-import lavalink
+import re, os, discord, lavalink
 from discord.ext import commands
 
 print('Loading in...')
@@ -13,7 +10,7 @@ class Music(commands.Cog):
 
 		if not hasattr(bot, 'lavalink'):
 			bot.lavalink = lavalink.Client(804096162097004544)
-			bot.lavalink.add_node('142.54.191.92', 1295, 'pog', 'eu', 'default-node')  # Host, Port, Password, Region, Name
+			bot.lavalink.add_node(os.getenv('lavalink-ip'), eval(os.getenv('lavalink-port')), os.getenv('lavalink-password'), 'eu', 'default-node')  # Host, Port, Password, Region, Name
 			bot.add_listener(bot.lavalink.voice_update_handler, 'on_socket_response')
 		
 		lavalink.add_event_hook(self.track_hook)
@@ -179,7 +176,7 @@ class Music(commands.Cog):
 
 		if volume == None:
 			await ctx.reply(f'Current volume is `{player.volume}%`', mention_author=False)
-			
+
 		elif volume < 1000 and volume >= 0:
 			oldvol = player.volume
 			await player.set_volume(volume)
