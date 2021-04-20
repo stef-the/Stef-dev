@@ -17,7 +17,7 @@ slash = SlashCommand(bot)
 
 import sys, traceback, os, json
 
-initial_extensions = ['cogs.admin', 'cogs.nopo', 'cogs.moderation', 'cogs.starboard', 'cogs.status']
+initial_extensions = ['cogs.admin', 'cogs.nopo', 'cogs.moderation', 'cogs.starboard', 'cogs.status', 'cogs.music']
 
 if __name__ == '__main__':
 	for extension in initial_extensions:
