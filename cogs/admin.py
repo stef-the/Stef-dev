@@ -24,6 +24,21 @@ class Admin(commands.Cog):
 				output = "https://hst.sh/" + body['key']
 			await session.close()
 			await ctx.reply(str(output), mention_author=False)
+	
+	@commands.command(name='evaluate',
+					pass_context=True, 
+					hidden=True, 
+					aliases=['ev', 'eval'])
+	@commands.is_owner()
+	async def evaluate(self, ctx, *args):
+		try:
+			output = eval(' '.join(args))
+		except Exception as e:
+			output = e
+		embed = discord.Embed()
+		embed.title='Evaluate'
+		embed.description=f'**Input:**```py\n{" ".join(args)}```**Output:**```py\n{output}```'
+		await ctx.reply(embed=embed, mention_author=False)
 
 def setup(bot):
 	bot.add_cog(Admin(bot))

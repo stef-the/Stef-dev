@@ -8,16 +8,16 @@ def get_prefix(bot, message):
 	prefixes = ['-']
 
 	if not message.guild:
-		return '?'
+		return('?')
 	
-	return commands.when_mentioned_or(*prefixes)(bot, message)
+	return(commands.when_mentioned_or(*prefixes)(bot, message))
 
-bot = commands.Bot(command_prefix=get_prefix, description='Very Very cool bot!')
+bot = commands.Bot(command_prefix=get_prefix, description='...')
 slash = SlashCommand(bot)
 
-import sys, traceback, os, json
+import sys, traceback, os, json, datetime
 
-initial_extensions = ['cogs.admin', 'cogs.nopo', 'cogs.moderation', 'cogs.starboard', 'cogs.status', 'cogs.music']
+initial_extensions = ['cogs.admin', 'cogs.nopo', 'cogs.moderation', 'cogs.starboard', 'cogs.status', 'cogs.music', 'cogs.leveling']
 
 if __name__ == '__main__':
 	for extension in initial_extensions:
@@ -86,14 +86,45 @@ async def cogs(ctx, folder: str='cogs'):
 		embed = discord.Embed(title=f'Cogs ({thing})', description='\n'.join(e))
 		await ctx.reply(embed=embed, mention_author=False)
 
+@bot.command(name='shutdown', 
+			hidden=True)
+async def shutdown(ctx):
+	print("<SHUTDOWN> Start")
+	try:
+		await bot.close()
+		print("<SHUTDOWN> Successful")
+	except Exception as e:
+		print(f"<SHUTDOWN> EnvironmentError as {e}")
+		bot.clear()
+
 class MyNewHelp(commands.MinimalHelpCommand):
 	async def send_pages(self):
 		destination = self.get_destination()
 		for page in self.paginator.pages:
-			emby = discord.Embed(description=page)
-			await destination.send(embed=emby)	
+			embed = discord.Embed(title='Help', description=page)
+			await destination.send(embed=embed)	
 
 bot.help_command = MyNewHelp()
+
+@bot.command(name='ping',
+			aliases=['pong'],
+			definition='Check the bot\'s response time.\n**Example:** -ping')
+async def ping(ctx):
+	if ctx.message.content[1:5].lower() == 'ping'
+		await ctx.reply(f'🏓 Pong! `{round((bot.latency * 1000), 4)}ms`', mention_author=False)
+	if ctx.message.content[1:5].lower() == 'pong'
+		await ctx.reply(f'🏓 Ping! `{round((bot.latency * 1000), 4)}ms`', mention_author=False)
+
+
+@bot.event
+async def on_message(message):
+		try:
+			await bot.process_commands(message)
+
+		except Exception as e:
+			append = open('log/all.log', 'a')
+			append.write(e)
+			append.close()
 
 token = os.getenv('token')
 bot.run(token, bot=True, reconnect=True)

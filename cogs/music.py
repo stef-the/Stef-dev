@@ -10,7 +10,7 @@ class Music(commands.Cog):
 
 		if not hasattr(bot, 'lavalink'):
 			bot.lavalink = lavalink.Client(804096162097004544)
-			bot.lavalink.add_node(os.getenv('lavalink-ip'), eval(os.getenv('lavalink-port')), os.getenv('lavalink-password'), 'eu', 'default-node')  # Host, Port, Password, Region, Name
+			bot.lavalink.add_node('42.54.191.92', 1295, 'pog', 'eu', 'default-node')  # Host, Port, Password, Region, Name
 			bot.add_listener(bot.lavalink.voice_update_handler, 'on_socket_response')
 		
 		lavalink.add_event_hook(self.track_hook)
@@ -19,6 +19,7 @@ class Music(commands.Cog):
 		self.bot.lavalink._event_hooks.clear()
 
 	async def cog_before_invoke(self, ctx):
+
 		guild_check = ctx.guild is not None
 
 		if guild_check:
@@ -60,7 +61,8 @@ class Music(commands.Cog):
 			await guild.change_voice_state(channel=None)
 
 	@commands.command(name='play',
-					aliases=['pl', 'p'])
+					aliases=['pl', 'p'],
+					definition='Play a song. Uses Lavalink.\n**Example:** -play Never Gonna Give You Up')
 	async def play(self, ctx, *, query: str):
 		player = self.bot.lavalink.player_manager.get(ctx.guild.id)
 		
@@ -112,7 +114,9 @@ class Music(commands.Cog):
 		if not player.is_playing:
 			await player.play()
 
-	@commands.command(aliases=['dc', 'leave'])
+	@commands.command(name='disconnect',
+					aliases=['dc', 'leave', 'stop'],
+					description='Disconnect from a VC when playing music.\n**Example:** -disconnect')
 	async def disconnect(self, ctx):
 		player = self.bot.lavalink.player_manager.get(ctx.guild.id)
 
@@ -128,7 +132,8 @@ class Music(commands.Cog):
 		await ctx.guild.change_voice_state(channel=None)
 		await ctx.reply('<:yes:830635069222813766> Disconnected', mention_author=False)
 	
-	@commands.command(name='pause')
+	@commands.command(name='pause',
+					description='Pause / Resume music that is currently playing. Same functionnality as -resume command.\n**Example:** -pause')
 	async def pause(self, ctx):
 		player = self.bot.lavalink.player_manager.get(ctx.guild.id)
 
@@ -146,7 +151,8 @@ class Music(commands.Cog):
 			await player.set_pause(True)
 			await ctx.reply('<:yes:830635069222813766> Paused', mention_author=False)
 	
-	@commands.command(name='resume')
+	@commands.command(name='resume',
+					description='Resume / Pause music that is currently playing. Same functionnality as -resume command.\n**Example:** -resume')
 	async def resume(self, ctx):
 		player = self.bot.lavalink.player_manager.get(ctx.guild.id)
 

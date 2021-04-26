@@ -89,6 +89,21 @@ class Moderation(commands.Cog):
 		else:
 			await ctx.send(self.bot.bot_prefix + 'Too many messages to delete. Enter a number < 10000')
 
+	@kick.error
+	async def kick_error(ctx, error):
+		text = f"<:no:830635025187209216> {ctx.author.mention} - Missing `kick_members` permission"
+		await ctx.reply(text, mention_author=False)
+	
+	@purge.error
+	async def purge_error(ctx, error):
+		text = f"<:no:830635025187209216> {ctx.author.mention} - Missing `manage_messages` permissions"
+		await ctx.reply(text, mention_author=False)
+	
+	@ban.error
+	async def ban_error(ctx, error):
+		text = f"<:no:830635025187209216> {ctx.author.mention} - Missing `ban_members` permissions"
+		await ctx.reply(text, mention_author=False)
+
 def setup(bot):
 	bot.add_cog(Moderation(bot))
 	print('cogs.moderation - injected')
