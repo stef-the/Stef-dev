@@ -3,7 +3,7 @@ from discord.ext import commands
 
 print('Loading in...')
 
-class Status(commands.Cog):
+class status_cog(commands.Cog, name='Status'):
 	def __init__(self, bot):
 		self.bot = bot
 
@@ -13,6 +13,7 @@ class Status(commands.Cog):
 					aliases=['st'])
 	@commands.is_owner()
 	async def status(self, ctx, s_type='', *args):
+
 		status_types = {
 			"watching": ['watch', 'watching'],
 			"playing": ['play', 'playing'],
@@ -24,6 +25,7 @@ class Status(commands.Cog):
 			"offline": ['offline', 'off', 'invis', 'invisible'],
 			"clear": ['none', 'clear']
 		}
+		
 		item = True
 		stype = s_type.lower()
 		if stype in status_types['clear']:
@@ -54,5 +56,5 @@ class Status(commands.Cog):
 
 
 def setup(bot):
-	bot.add_cog(Status(bot))
+	bot.add_cog(status_cog(bot))
 	print('cogs.status - injected')

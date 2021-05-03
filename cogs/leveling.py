@@ -3,7 +3,7 @@ from discord.ext import commands
 
 print('Loading in...')
 
-class Leveling(commands.Cog):
+class leveling_cog(commands.Cog, name='Leveling'):
 	def __init__(self, bot):
 		self.bot = bot
 
@@ -93,5 +93,5 @@ class Leveling(commands.Cog):
 		write.close()
 
 def setup(bot):
-	bot.add_cog(Leveling(bot))
+	bot.add_cog(leveling_cog(bot))
 	print('cogs.leveling - injected')

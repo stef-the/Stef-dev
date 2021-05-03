@@ -17,7 +17,7 @@ slash = SlashCommand(bot)
 
 import sys, traceback, os, json, datetime
 
-initial_extensions = ['cogs.admin', 'cogs.nopo', 'cogs.moderation', 'cogs.starboard', 'cogs.status', 'cogs.music', 'cogs.leveling']
+initial_extensions = ['cogs.admin', 'cogs.moderation', 'cogs.starboard', 'cogs.status', 'cogs.leveling']
 
 if __name__ == '__main__':
 	for extension in initial_extensions:
@@ -26,7 +26,11 @@ if __name__ == '__main__':
 
 @bot.event
 async def on_ready():
-	print(f'\n\nLogging in as: {bot.user.name} - {bot.user.id}\ndiscord.py version: {discord.__version__}\n')
+
+	global client
+	client = bot.user
+
+	print(f'\n\nLogging in as: {client.name} - {client.id}\ndiscord.py version: {discord.__version__}\ndiscord_slash version: {discord_slash.__version__}\njson version: {json.__version__}\nos version: {os.__version__}\n')
 	print(f'Successfully logged in.')
 
 @bot.command(hidden=True)
@@ -110,11 +114,15 @@ bot.help_command = MyNewHelp()
 			aliases=['pong'],
 			definition='Check the bot\'s response time.\n**Example:** -ping')
 async def ping(ctx):
-	if ctx.message.content[1:5].lower() == 'ping'
-		await ctx.reply(f'🏓 Pong! `{round((bot.latency * 1000), 4)}ms`', mention_author=False)
-	if ctx.message.content[1:5].lower() == 'pong'
-		await ctx.reply(f'🏓 Ping! `{round((bot.latency * 1000), 4)}ms`', mention_author=False)
+	await ctx.reply(f'🏓 Pong! `{round((bot.latency * 1000), 4)}ms`', mention_author=False)
 
+@bot.command(name='info',
+			aliases=['i', 'information'],
+			definition='Information about the bot.\n**Example:** -info')
+async def info(ctx):
+	embed = discord.Embed(title='Information', description=f'')
+	embed.add_field(name='Module Versions', value=f'`discord.py` version: {discord.__version__}\n`discord_slash` version: {discord_slash.__version__}\n`json` version: {json.__version__}\n`os` version: {os.__version__}\n', inline=False)
+	await ctx.reply(embed=embed, mention_author=False)
 
 @bot.event
 async def on_message(message):

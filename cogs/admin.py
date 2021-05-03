@@ -3,7 +3,7 @@ from discord.ext import commands
 
 print('Loading in...')
 
-class Admin(commands.Cog):
+class admin_cog(commands.Cog, name='Admin'):
 	def __init__(self, bot):
 		self.bot = bot
 
@@ -41,5 +41,5 @@ class Admin(commands.Cog):
 		await ctx.reply(embed=embed, mention_author=False)
 
 def setup(bot):
-	bot.add_cog(Admin(bot))
+	bot.add_cog(admin_cog(bot))
 	print('cogs.admin - injected')

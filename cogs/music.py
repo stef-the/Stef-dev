@@ -4,7 +4,7 @@ from discord.ext import commands
 print('Loading in...')
 url_rx = re.compile(r'https?://(?:www\.)?.+')
 
-class Music(commands.Cog):
+class music_cog(commands.Cog, name='Music'):
 	def __init__(self, bot):
 		self.bot = bot
 
@@ -193,5 +193,5 @@ class Music(commands.Cog):
 
 
 def setup(bot):
-	bot.add_cog(Music(bot))
+	bot.add_cog(music_cog(bot))
 	print('cogs.moderation - injected')

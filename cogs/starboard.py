@@ -4,7 +4,7 @@ from discord.utils import get
 
 print('Loading in...')
 
-class Starboard(commands.Cog):
+class starboard_cog(commands.Cog, name='Starboard'):
 	def __init__(self, bot):
 		self.bot = bot
 
@@ -87,5 +87,5 @@ class Starboard(commands.Cog):
 				return
 
 def setup(bot):
-	bot.add_cog(Starboard(bot))
+	bot.add_cog(starboard_cog(bot))
 	print('cogs.starboard - injected')

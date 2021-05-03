@@ -4,7 +4,7 @@ from discord.utils import get
 
 print('Loading in...')
 
-class Moderation(commands.Cog):
+class moderation_cog(commands.Cog, name='Moderation'):
 	def __init__(self, bot):
 		self.bot = bot
 
@@ -105,5 +105,5 @@ class Moderation(commands.Cog):
 		await ctx.reply(text, mention_author=False)
 
 def setup(bot):
-	bot.add_cog(Moderation(bot))
+	bot.add_cog(moderation_cog(bot))
 	print('cogs.moderation - injected')

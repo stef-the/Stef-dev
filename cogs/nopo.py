@@ -3,7 +3,7 @@ from discord.ext import commands
 
 print('Loading in...')
 
-class Nopo(commands.Cog):
+class nopo_cog(commands.Cog, name='Nopo\'s Cog'):
 	def __init__(self, bot):
 		self.bot = bot
 
@@ -70,5 +70,5 @@ class Nopo(commands.Cog):
 				await ctx.reply(content="<:s_dnd:822236762771554315> Please send a valid pack.", mention_author=False)
 
 def setup(bot):
-	bot.add_cog(Nopo(bot))
+	bot.add_cog(nopo_cog(bot))
 	print('cogs.nopo - injected')
