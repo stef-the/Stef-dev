@@ -30,9 +30,6 @@ class testing(commands.Cog):
 			
 		os.remove('temp.' + postfix)
 
-
-
-
 def setup(bot):
 	bot.add_cog(testing(bot))
 	print('cogs.img-stef - injected')

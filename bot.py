@@ -134,5 +134,5 @@ async def on_message(message):
 			append.write(e)
 			append.close()
 
-token = 'ODA0MDk2MTYyMDk3MDA0NTQ0.YBHW6A.Nwsw_A6u9Z-lch3vNzW89_Ye4_M' #os.getenv('token')
+token = open('token.env', 'r').read()
 bot.run(token, bot=True, reconnect=True)
