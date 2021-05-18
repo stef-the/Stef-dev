@@ -30,7 +30,7 @@ async def on_ready():
 	global client
 	client = bot.user
 
-	print(f'\n\nLogging in as: {client.name} - {client.id}\ndiscord.py version: {discord.__version__}\ndiscord_slash version: {discord_slash.__version__}\njson version: {json.__version__}\nos version: {os.__version__}\n')
+	print(f'\n\nLogging in as: {client.name} - {client.id}\ndiscord.py version: {discord.__version__}\ndiscord_slash version: {discord_slash.__version__}\njson version: {json.__version__}\n')
 	print(f'Successfully logged in.')
 
 @bot.command(hidden=True)
@@ -121,7 +121,7 @@ async def ping(ctx):
 			definition='Information about the bot.\n**Example:** -info')
 async def info(ctx):
 	embed = discord.Embed(title='Information', description=f'')
-	embed.add_field(name='Module Versions', value=f'`discord.py` version: {discord.__version__}\n`discord_slash` version: {discord_slash.__version__}\n`json` version: {json.__version__}\n`os` version: {os.__version__}\n', inline=False)
+	embed.add_field(name='Module Versions', value=f'`discord.py` version: {discord.__version__}\n`discord_slash` version: {discord_slash.__version__}\n`json` version: {json.__version__}\n', inline=False)
 	await ctx.reply(embed=embed, mention_author=False)
 
 @bot.event
@@ -134,5 +134,5 @@ async def on_message(message):
 			append.write(e)
 			append.close()
 
-token = os.getenv('token')
+token = 'ODA0MDk2MTYyMDk3MDA0NTQ0.YBHW6A.Nwsw_A6u9Z-lch3vNzW89_Ye4_M' #os.getenv('token')
 bot.run(token, bot=True, reconnect=True)
