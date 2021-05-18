@@ -135,5 +135,5 @@ async def on_message(message):
 			append.close()
 from os import getenv
 
-token = open('.env', 'r').read().replace('TOKEN=', '') #os.getenv('TOKEN')
+token = open('.env', 'r').read().replace('TOKEN=', '') # os.getenv('TOKEN')
 bot.run(token, bot=True, reconnect=True)
