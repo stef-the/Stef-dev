@@ -18,9 +18,8 @@ class testing(commands.Cog):
 		r = requests.get(img1.url, allow_redirects=True)
 		open('temp.' + postfix, 'wb').write(r.content)
 
-		if postfix == 'png':
+		if postfix in corrects:
 			if to in corrects:
-
 				img = Image.open(img1.filename)
 				img.save(rf'send.{to}')
 				img = None
